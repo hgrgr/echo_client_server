@@ -152,9 +152,9 @@ int main(int argc, char* argv[]) {
         // need mutex
         s_list_mutex.lock();
         s_list.push_back(cli_sd);//add socket_des
-        s_list_mutex.unlock();
 		std::thread* t = new std::thread(recvThread, cli_sd);
 		t->detach();
+        s_list_mutex.unlock();
 	}
 	::close(sd);
 }
